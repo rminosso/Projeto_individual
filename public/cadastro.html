@@ -47,14 +47,15 @@
                 <span>Altura (CM):</span>
                 <input id="altura_input" type="text" placeholder="1.75">
             </div>
+            <div class="campo">
+                <span>Peso (KG):</span>
+                <input id="peso_input" type="text" placeholder="95.10">
+            </div>
             <!-- <div class="campo">
                 <span>Idade:</span>
                 <input id="idade_input" type="text" placeholder="23">
             </div>  -->
-            <!-- <div class="campo">
-                <span>Peso (KG):</span>
-                <input id="input_peso" type="text" placeholder="95">
-            </div>
+            <!-- 
             <div class="campo">
                 <span>Quantidade de treinos na semana:</span>
                 <input id="input_dias" type="text" placeholder="3">
@@ -155,6 +156,7 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var alturaVar = altura_input.value;
+    var pesoVar = peso_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
@@ -165,6 +167,7 @@
     if (
       nomeVar == "" ||
       alturaVar == "" ||
+      pesoVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" 
@@ -203,6 +206,7 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         alturaServer: alturaVar,
+        pesoServer: pesoVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
         // idEmpresaVincularServer: idEmpresaVincular
