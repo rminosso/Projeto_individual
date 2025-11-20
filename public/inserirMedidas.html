@@ -60,24 +60,24 @@
         if (input_peso.value == "" || input_cintura.value == "") {
             alert("Preencha pelo menos Peso e Cintura!");
             return false;
-
-        fetch("/medidas/cadastrar", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(corpo)
-        }).then(function (resposta) {
-            if (resposta.ok) {
-                alert("Medidas cadastradas com sucesso!");
-                window.location = "Dashboard.html";
-            } else {
-                alert("Erro ao cadastrar!");
-                resposta.text().then(texto => {
-                    console.error(texto);});
+        }else{
+            fetch("/medidas/cadastrar", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(corpo)
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    alert("Medidas cadastradas com sucesso!");
+                    window.location = "Dashboard.html";
+                } else {
+                    alert("Erro ao cadastrar!");
+                    resposta.text().then(texto => {
+                        console.error(texto);});
+                    }
+                }).catch(function (erro) {
+                    console.log(erro);
+                })
+                return false;
             }
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-        return false;
-    }
 }
 </script>

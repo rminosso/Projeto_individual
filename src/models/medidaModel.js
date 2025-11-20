@@ -1,5 +1,17 @@
 var database = require("../database/config");
 
+function cadastrarMedida(cintura, peito, bracoE, bracoD, coxa, panturrilha, peso, idUsuario) {
+
+    var instrucaoSql = `INSERT INTO medidas
+     (cintura, peito, bracoEsq, bracoDir,
+     coxa, panturrilha, peso, fkUsuario, dtRegistro)
+     VALUES (${cintura}, ${peito}, ${bracoE}, ${bracoD}, ${coxa}, ${panturrilha},${peso}, ${idUsuario}, NOW());`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 function buscarUltimasMedidas(idUsuario) {
 
     var instrucaoSql = `
@@ -24,18 +36,9 @@ function buscarUltimasMedidas(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-function cadastrarMedida(cintura, peito, bracoE, bracoD, coxa, panturrilha, peso, idUsuario) {
 
-    var instrucaoSql = `INSERT INTO medidas
-     (cintura, peito, bracoEsq, bracoDir,
-     coxa, panturrilha, peso, fkUsuario, dtRegistro)
-     VALUES (${cintura}, ${peito}, ${bracoE}, ${bracoD}, ${coxa}, ${panturrilha},${peso}, ${idUsuario}, NOW());`;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
 
 module.exports = {
-    buscarUltimasMedidas,
-    cadastrarMedida
+    cadastrarMedida,
+    buscarUltimasMedidas
 }

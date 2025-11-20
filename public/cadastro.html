@@ -48,10 +48,6 @@
                 <input id="altura_input" type="text" placeholder="1.75">
             </div>
             <div class="campo">
-                <span>Peso (KG):</span>
-                <input id="peso_input" type="text" placeholder="95.10">
-            </div>
-            <div class="campo">
                 <span>Data de Nascimento:</span>
                 <input id="dtNasc_input" type="date" placeholder="2002-07-24">
             </div>
@@ -154,7 +150,6 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var alturaVar = altura_input.value;
-    var pesoVar = peso_input.value;
     var dtNascVar = dtNasc_input.value;
     var dispoVar = dispo_input.value;
     var prioridadeVar = prioridade_input.value;
@@ -168,7 +163,6 @@
     if (
       nomeVar == "" ||
       alturaVar == "" ||
-      pesoVar == "" ||
       dtNascVar == "" ||
       dispoVar == "" ||
       prioridadeVar == "" ||
@@ -210,7 +204,6 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         alturaServer: alturaVar,
-        pesoServer: pesoVar,
         dtNascServer: dtNascVar,
         dispoServer: dispoVar,
         prioridadeServer: prioridadeVar,
