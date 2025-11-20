@@ -22,21 +22,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body onload="obterDadosGrafico()">
-    <div class="kpi-container" style="display: flex; justify-content: space-around; width: 90%; margin-bottom: 20px;">
+    <div class="kpi_container">
 
-        <div class="card-kpi"
-            style="background-color: #252527; padding: 20px; border-radius: 10px; text-align: center; width: 40%; border-bottom: 4px solid #e6005a;">
+        <div class="card_kpi">
             <h3 style="color: #ccc;">Peso Atual</h3>
-            <span id="kpi_peso" style="color: white; font-size: 2.5rem; font-weight: bold;">--</span>
+            <span id="kpi_peso"></span>
             <span style="color: white;">kg</span>
         </div>
 
-        <div class="card-kpi"
-            style="background-color: #252527; padding: 20px; border-radius: 10px; text-align: center; width: 40%; border-bottom: 4px solid #32b9cd;">
+        <div class="card_kpi">
             <h3 style="color: #ccc;">IMC</h3>
-            <span id="kpi_imc" style="color: white; font-size: 2.5rem; font-weight: bold;">--</span>
+            <span id="kpi_imc"></span>
             <br>
-            <small id="kpi_imc_texto" style="color: #888;">Calculando...</small>
+            <span id="kpi_imc_texto"></span>
         </div>
 
     </div>
@@ -120,8 +118,8 @@
     })
 }
 
-    // 3. Função que cria o gráfico com Chart.js
-    function plotarGrafico(resposta) {
+    
+    function plotarGrafico(resposta) { // Cria o gráfico com Chart.js
 
         let ultimo = resposta[resposta.length - 1]; // ultimos dados
 
