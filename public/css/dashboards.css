@@ -83,14 +83,14 @@
 
 .btns-dash {
     width: 90%;
-    margin-bottom: 20px;
+    margin-top: -20px;
     display: flex;
     justify-content: center;
 }
 
 #graficos {
     width: 90%;   
-    height: 60%; 
+    height: 75%; 
     background-color: rgba(0,0,0,0.7);
     border-radius: 15px;
     padding: 20px;
@@ -138,4 +138,8 @@ canvas {
     color: white;
     font-size: 2.5rem; 
     font-weight: bold;
+}
+
+#kpi_imc_texto{
+    color: white;
 }
