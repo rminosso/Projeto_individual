@@ -128,20 +128,27 @@ header .container_header {
     width: 7vw;
 }
 
+.imagem_legenda {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    width: 20vw;         
+    margin-right: 20px;
+}
 
 .legenda {
     margin-top: -35px;
-    margin-left: 70px;
+    margin-left: 30px;
 }
 
 .legenda2 {
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 10px;
 }
 
 .legenda3 {
-    margin-top: -35px;
-    margin-left: 10px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .linha_tempo {
@@ -159,27 +166,27 @@ header .container_header {
 }
 
 .linha_tempo h2 {
-    margin-bottom: -10px;
+    margin-bottom: 10px;
 }
 
 .titulo_linha {
     display: flex;
     align-items: center;
-    padding: 3%;
+    padding: 2%;
     gap: 20px;
 }
 
 .titulo_linha2 {
     display: flex;
     align-items: center;
-    padding: 3%;
+    padding: 2%;
     gap: 20px;
 }
 
 .titulo_linha3 {
     display: flex;
     align-items: center;
-    padding: 3%;
+    padding: 2%;
     gap: 20px;
 }
 
@@ -187,27 +194,35 @@ header .container_header {
     width: 15vw;
     height: 15vw;
     object-fit: contain;
-    border-radius: 20px;
-    margin-top: -5px;
+    margin-top: -10px;
 }
 
 .titulo_linha2 img {
     width: 15vw;
     height: 15vw;
     object-fit: contain;
-    border-radius: 20px;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
 .titulo_linha3 img {
     width: 15vw;
-    height: 15vw;
+    height: 13vw;
     object-fit: contain;
-    border-radius: 20px;
-    margin-top: -35px;
+    margin-top: 20px;
 }
 
 .titulo_linha p {
+    flex: 1;
+    text-align: left;
+}
+
+.titulo_linha2 p {
+    flex: 1;
+    text-align: left;
+    margin-top: 0;
+}
+
+.titulo_linha3 p {
     flex: 1;
     text-align: left;
 }

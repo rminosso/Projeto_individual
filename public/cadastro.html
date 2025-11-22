@@ -59,73 +59,32 @@
             <span>Prioridade Muscular:</span>
             <select  id="prioridade_input">
               <option selected disabled >Selecione uma opção</option>
-                    <option >Braços</option>
-                    <option >Peito</option>
-                    <option >Costas</option>
-                    <option >Ombros</option>
-                    <option >Quadriceps</option>
-                    <option >Posterior de coxa</option>
-                    <option >Panturrilha</option>
+                    <option >equilibrado</option>
+                    <option >superior</option>
+                    <option >inferior</option>
             </select>
             </div>
         </div>
         <div class="formulario">
             <div class="campo">
                 <span>Email:</span>
-                <input id="email_input" type="text" placeholder="renan@email.com">
+                <input id="email_input" type="text" oninput="veriEmail()" placeholder="renan@email.com">
                 <span id="span_email"></span>
             </div>
             <div class="campo">
                 <span>Senha:</span>
-                <input id="senha_input" type="password" placeholder="********">
+                <input id="senha_input" type="password" oninput="veriSenha()" placeholder="********">
                 <span id="span_senha"></span>
             </div>
             <div class="campo">
                 <span>Confirme sua senha:</span>
-                <input id="confirmacao_senha_input" type="password" placeholder="********">
+                <input id="confirmacao_senha_input" type="password" oninput="veriSenhaConfirmacao()" placeholder="********">
                 <span id="conf_senha"></span>
             </div>
             <button class="botao" onclick="cadastrar()">Cadastrar</button>
             <p>Já tem uma conta? <a href="login.html">Login</a></p>
         </div>
     </div>
-    <!-- <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario"> -->
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <!-- <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
-        </div>
-
-        <div id="div_erros_login"></div>
-      </div>
-    </div> -->
   </div>
 
   <!--footer inicio-->
@@ -139,12 +98,90 @@
 </html>
 
 <script>
+    var veriEmailvar = false;
+    var senha = '';
+    var veriSenhavar= false;
+    var veriSenhaConfirmacaovar = false;
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+    function veriEmail() { 
+        var email = email_input.value;
+        var emailMin = email.toLowerCase();
+
+        if (emailMin.includes('@') && emailMin.endsWith('.com')){ 
+            span_email.innerHTML = ` Email válido`;
+            span_email.style.color = `green`;
+            veriEmailvar = true;
+        } else {
+            span_email.innerHTML = ` Email inválido`;
+            span_email.style.color = `red`;
+            veriEmailvar = false
+        }
+    }
+
+    function veriSenha() { 
+        senha = senha_input.value;
+        var veriTam = false;
+        var veriNum = false;
+        var veriCarc = false
+
+        if (senha.length >= 8) { 
+            veriTam = true;
+            span_senha.style.color = `green`;
+            span_senha.innerHTML = ` Senha Válida`;
+        } else {
+            veriTam = false;
+            span_senha.style.color = `red`;
+            span_senha.innerHTML = ` Senha inválida`;
+        }
+
+        if (senha.includes(0) || senha.includes(1) || senha.includes(2) || senha.includes(3) || senha.includes(4)
+            || senha.includes(5) || senha.includes(6) || senha.includes(7) || senha.includes(8) || senha.includes(9)) {
+            veriNum = true;
+            span_senha.style.color = `green`;
+            span_senha.innerHTML = ` Senha Válida`;
+        } else {
+            veriNum = false;
+            span_senha.style.color = `red`;
+            span_senha.innerHTML = ` Senha inválida`;
+        }
+
+        if (senha.includes('!') || senha.includes('%') || senha.includes('*') || senha.includes('.')
+            || senha.includes('&') || senha.includes('#') || senha.includes('$')) { 
+            veriCarc = true;
+             span_senha.style.color = `green`;
+             span_senha.innerHTML = ` Senha Válida`;
+        } else {
+            veriCarc = false;
+            span_senha.style.color = `red`;
+            span_senha.innerHTML = ` Senha inválida`;
+        }
+
+        if (veriTam == false) { 
+        } else if (veriNum == false) { 
+        } else if (veriCarc == false) {
+        } else { 
+            veriSenhavar = true;
+        }
+    }
+
+    function veriSenhaConfirmacao() { 
+        var senha_confirmacao = confirmacao_senha_input.value;
+
+        if (senha_confirmacao == senha) { 
+            conf_senha.innerHTML = ``;
+            conf_senha.style.color = `green`;
+            veriSenhaConfirmacaovar = true;
+
+        } else {
+            conf_senha.innerHTML = ` Senha incompatível`;
+            conf_senha.style.color = `red`;
+            veriSenhaConfirmacaovar = false;
+        }
+      }
+
+ 
 
   function cadastrar() {
-    // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -156,8 +193,6 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    // var codigoVar = codigo_input.value;
-    // var idEmpresaVincular
 
     // Verificando se há algum campo em branco
     if (
@@ -179,19 +214,6 @@
     } else {
       setInterval(sumirMensagem, 5000);
     }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -236,26 +258,6 @@
 
     return false;
   }
-
-  // Listando empresas cadastradas 
-  // function listar() {
-  //   fetch("/empresas/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resposta) {
-  //       resposta.json().then((empresas) => {
-  //         empresas.forEach((empresa) => {
-  //           listaEmpresasCadastradas.push(empresa);
-
-  //           console.log("listaEmpresasCadastradas")
-  //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
 
   function sumirMensagem() {
     cardErro.style.display = "none";
