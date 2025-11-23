@@ -22,7 +22,18 @@ function cadastrar(nome, altura, dtNasc, dispTreino, prioridade, email, senha) {
     return database.executar(instrucaoSql);
 }
 
+function buscarPreferencias(idUsuario) {
+    var instrucaoSql = `
+        SELECT nome, dispTreino, prioridade 
+        FROM usuarios 
+        WHERE idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    buscarPreferencias
 };

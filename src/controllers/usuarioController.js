@@ -89,7 +89,38 @@ function cadastrar(req, res) {
     }
 }
 
+function buscarPreferencias(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("O id do usuário está undefined!");
+        return;
+    }
+
+    usuarioModel.buscarPreferencias(idUsuario)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado[0]);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar as preferências: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    buscarPreferencias
 }

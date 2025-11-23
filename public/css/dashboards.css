@@ -142,4 +142,52 @@ canvas {
 
 #kpi_imc_texto{
     color: white;
+}  
+
+/*Treinos Sugeridos Treinos Sugeridos Treinos Sugeridos  */
+
+#kpi_prioridade{
+    color: white;
+    font-weight: bold;
+}
+
+#kpi_disponibilidade{
+    color: white;
+    font-weight: bold;
+}
+
+.sugestao_container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 30px;
+    color: white;
+    border-radius: 10px;
+}
+
+.container_treino {
+    display: flex;
+    flex-wrap: wrap;     
+    justify-content: center;
+    gap: 30px;           
+    width: 100%;
+    margin-top: 30px;
+}
+
+.card_dia_treino {
+    background-color: rgba(0, 0, 0, 0.9); 
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px; 
+    color: white;
+}
+
+.card_dia_treino h3 {
+    color: #8b0000;
+    border-bottom: 1px solid white;
+    text-align: center;
+    margin-top: 0;
 }
